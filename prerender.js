@@ -26,7 +26,7 @@ const routesToPrerender = fs
     let metaInfo = {}
     const reg = /<!--metaInfo([^]*)end-->/
     const regTest = reg.exec(metaHtml)//匹配metaInfo信息
-    let metaInfoHtml = '',metaInfoTitle='中诚信指数官网'
+    let metaInfoHtml = '',metaInfoTitle='title'
     if(regTest){
       metaInfo = eval('('+reg.exec(regTest)[1]+')')
       console.log(metaInfo);
