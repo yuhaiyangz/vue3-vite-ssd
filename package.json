@@ -1,0 +1,29 @@
+{
+  "name": "vite_ssr",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "dev:ssr": "node ./server.js",
+    "serve": "cross-env NODE_ENV=production node server",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:client": "vite build --outDir dist/client --ssrManifest",
+    "build:ssr": "vite build --outDir dist/server --ssr src/entry-server.js",
+    "prerender": "vite build --ssrManifest --outDir dist/static && npm run build:ssr && node prerender",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.18.1",
+    "path": "^0.12.7",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "compression": "^1.7.4",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.7",
+    "vue-tsc": "^0.34.7"
+  }
+}
